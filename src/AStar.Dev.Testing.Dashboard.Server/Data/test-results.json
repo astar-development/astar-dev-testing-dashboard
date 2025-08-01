@@ -1,0 +1,18 @@
+[
+  {
+    "Name": "GetUserReturnsCorrectUser",
+    "Outcome": "Passed",
+    "Duration": "00:00:00.1234567",
+    "Category": "Unit",
+    "ErrorMessage": "",
+    "Timestamp": "2025-07-30T01:25:00Z"
+  },
+  {
+    "Name": "SaveFileThrowsOnCorruption",
+    "Outcome": "Failed",
+    "Duration": "00:00:01.421",
+    "Category": "Integration",
+    "ErrorMessage": "System.IO.IOException",
+    "Timestamp": "2025-07-30T01:25:02Z"
+  }
+]

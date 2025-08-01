@@ -1,0 +1,41 @@
+@page "/testing-dashboard"
+<PageTitle>AStar Dev: Testing Dashboard</PageTitle>
+<h3 class="mb-4">Testing Dashboard</h3>
+
+<div class="row g-4">
+    <div class="col-md-3">
+        <div class="card shadow rounded-3 h-100 border-0">
+            <div class="card-body bg-success bg-opacity-25 rounded-3 text-center">
+                <h4 class="card-title">Passed</h4>
+                <p class="display-4 fw-bold text-success">@Results.Count(result => result.Outcome == "Passed")</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow rounded-3 h-100 border-0">
+            <div class="card-body bg-danger bg-opacity-25 rounded-3 text-center">
+                <h4 class="card-title">Failed</h4>
+                <p class="display-4 fw-bold text-danger">@Results.Count(result => result.Outcome == "Failed")</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow rounded-3 h-100 border-0">
+            <div class="card-body bg-warning bg-opacity-25 rounded-3 text-center">
+                <h4 class="card-title">Skipped</h4>
+                <p class="display-4 fw-bold text-warning">@Results.Count(result => result.Outcome == "Skipped")</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow rounded-3 h-100 border-0">
+            <div class="card-body bg-secondary bg-opacity-25 rounded-3 text-center">
+                <h4 class="card-title">Ignored</h4>
+                <p class="display-4 fw-bold text-secondary">@Results.Count(result => result.Outcome == "Ignored")</p>
+            </div>
+        </div>
+    </div>
+</div>

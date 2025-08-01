@@ -1,8 +1,19 @@
+using AStar.Dev.Testing.Dashboard.Server;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddControllers();
+
+builder.Services.AddCors(options =>
+                         {
+                             options.AddDefaultPolicy(policy =>
+                                                      {
+                                                          policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                                                      });
+                         });
 
 var app = builder.Build();
 
@@ -12,6 +23,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.MapControllers();
 app.UseHttpsRedirection();
 
 var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
@@ -30,9 +42,14 @@ app.MapGet("/weatherforecast", () =>
                                })
    .WithName("GetWeatherForecast");
 
-app.Run();
+app.UseCors();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+await app.RunAsync();
+
+namespace AStar.Dev.Testing.Dashboard.Server
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+    {
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
 }

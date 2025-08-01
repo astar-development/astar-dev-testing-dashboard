@@ -1,3 +1,4 @@
+using AStar.Dev.Test.Dashboard.Ui.Services;
 using AStar.Dev.Testing.Dashboard;
 using AStar.Dev.Testing.Dashboard.Components;
 using AStar.Dev.Testing.Dashboard.Services;
@@ -9,6 +10,12 @@ builder.Services.AddRazorComponents()
        .AddInteractiveServerComponents();
 
 builder.Services.AddScoped<ThemeService>();
+builder.Services.AddScoped<TestResultsService>();
+
+builder.Services.AddHttpClient("TestApi", client =>
+                                          {
+                                              client.BaseAddress = new ("https://localhost:7253"); // Get from configuration
+                                          });
 
 var app = builder.Build();
 

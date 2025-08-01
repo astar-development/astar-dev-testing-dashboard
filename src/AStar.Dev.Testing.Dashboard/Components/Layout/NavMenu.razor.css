@@ -59,7 +59,7 @@
     line-height: 3rem;
     width: 100%;
     transition: color var(--transition-duration) ease,
-                background-color var(--transition-duration) ease;
+    background-color var(--transition-duration) ease;
 }
 
 .nav-item ::deep a.active {

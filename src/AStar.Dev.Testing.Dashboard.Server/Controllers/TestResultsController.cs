@@ -9,7 +9,7 @@ namespace AStar.Dev.Testing.Dashboard.Server.Controllers;
 public class TestResultsController : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TestResult>>> Get()
+    public async Task<ActionResult<IEnumerable<TestResult>>> GetAsync()
     {
         var filePath = Path.Combine("Data", "test-results.json");
 

@@ -1,4 +1,5 @@
 using AStar.Dev.Testing.Dashboard.Server;
+using AStar.Dev.Testing.Dashboard.Server.TestCoverage;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,13 +16,17 @@ builder.Services.AddCors(options =>
                                                       });
                          });
 
+// Add services to the container.
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
+
+app.MapOpenApi();
 
 app.MapControllers();
 app.UseHttpsRedirection();
@@ -42,7 +47,9 @@ app.MapGet("/weatherforecast", () =>
                                })
    .WithName("GetWeatherForecast");
 
-app.UseCors();
+app.MapCodeCoverageEndpoints()
+   .MapTestResultsEndpoint()
+   .UseCors();
 
 await app.RunAsync();
 

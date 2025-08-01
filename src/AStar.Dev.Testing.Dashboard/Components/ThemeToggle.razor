@@ -1,6 +1,6 @@
 @namespace AStar.Dev.Testing.Dashboard.Components
 @inject Services.ThemeService ThemeService
-@inject IJSRuntime            JSRuntime
+@inject IJSRuntime            JsRuntime
 
 <div class="theme-toggle">
     <button class="btn btn-link" @onclick="ToggleTheme">
@@ -16,14 +16,14 @@
 </div>
 
 @code {
-    private bool _isFirstRender = true;
+    private bool isFirstRender = true;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (_isFirstRender)
+        if (isFirstRender)
         {
-            _isFirstRender = false;
-            var theme = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "theme");
+            isFirstRender = false;
+            var theme = await JsRuntime.InvokeAsync<string>("localStorage.getItem", "theme");
 
             if (!string.IsNullOrEmpty(theme))
             {
@@ -42,8 +42,8 @@
 
     private async Task UpdateTheme()
     {
-        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "theme", ThemeService.CurrentTheme);
-        await JSRuntime.InvokeVoidAsync("setTheme",             ThemeService.CurrentTheme);
+        await JsRuntime.InvokeVoidAsync("localStorage.setItem", "theme", ThemeService.CurrentTheme);
+        await JsRuntime.InvokeVoidAsync("setTheme",             ThemeService.CurrentTheme);
     }
 
 }

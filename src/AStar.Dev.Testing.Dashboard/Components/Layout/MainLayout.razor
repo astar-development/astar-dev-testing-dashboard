@@ -1,4 +1,6 @@
-﻿@inherits Microsoft.AspNetCore.Components.LayoutComponentBase
+﻿@namespace AStar.Dev.Testing.Dashboard.Components.Layout
+@inherits Microsoft.AspNetCore.Components.LayoutComponentBase
+@inject Services.ThemeService ThemeService
 
 <div class="page">
     <div class="sidebar">
@@ -7,6 +9,7 @@
 
     <main>
         <div class="top-row px-4">
+            <ThemeToggle />
             <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
         </div>
 

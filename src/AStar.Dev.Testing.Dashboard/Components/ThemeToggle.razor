@@ -1,0 +1,49 @@
+@namespace AStar.Dev.Testing.Dashboard.Components
+@inject Services.ThemeService ThemeService
+@inject IJSRuntime            JSRuntime
+
+<div class="theme-toggle">
+    <button class="btn btn-link" @onclick="ToggleTheme">
+        @if (ThemeService.CurrentTheme == "light")
+        {
+            <i class="bi bi-sun-fill" aria-label="Light theme"></i>
+        }
+        else
+        {
+            <i class="bi bi-moon-fill" aria-label="Dark theme"></i>
+        }
+    </button>
+</div>
+
+@code {
+    private bool _isFirstRender = true;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (_isFirstRender)
+        {
+            _isFirstRender = false;
+            var theme = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "theme");
+
+            if (!string.IsNullOrEmpty(theme))
+            {
+                ThemeService.CurrentTheme = theme;
+                await UpdateTheme();
+                StateHasChanged();
+            }
+        }
+    }
+
+    private async Task ToggleTheme()
+    {
+        ThemeService.CurrentTheme = ThemeService.CurrentTheme == "light" ? "dark" : "light";
+        await UpdateTheme();
+    }
+
+    private async Task UpdateTheme()
+    {
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "theme", ThemeService.CurrentTheme);
+        await JSRuntime.InvokeVoidAsync("setTheme",             ThemeService.CurrentTheme);
+    }
+
+}

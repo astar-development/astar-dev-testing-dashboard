@@ -1,10 +1,14 @@
+using AStar.Dev.Testing.Dashboard;
 using AStar.Dev.Testing.Dashboard.Components;
+using AStar.Dev.Testing.Dashboard.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
        .AddInteractiveServerComponents();
+
+builder.Services.AddScoped<ThemeService>();
 
 var app = builder.Build();
 

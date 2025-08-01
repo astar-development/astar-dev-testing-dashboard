@@ -4,6 +4,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{06382787-BE5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.Testing.Dashboard", "src\AStar.Dev.Testing.Dashboard\AStar.Dev.Testing.Dashboard.csproj", "{FC3B1F57-9BAD-4928-B155-74A76E687852}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B4F78BFC-D1FE-4DD8-A85B-834C99E4A403}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{A8BDCAAB-A708-4A82-A019-3910B1F2598C}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{0B28E93F-70D1-4AAD-9848-F027EE1AEC15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,5 +26,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FC3B1F57-9BAD-4928-B155-74A76E687852} = {06382787-BE50-4C3B-A709-57FA0B6EAADE}
+		{A8BDCAAB-A708-4A82-A019-3910B1F2598C} = {B4F78BFC-D1FE-4DD8-A85B-834C99E4A403}
+		{0B28E93F-70D1-4AAD-9848-F027EE1AEC15} = {A8BDCAAB-A708-4A82-A019-3910B1F2598C}
 	EndGlobalSection
 EndGlobal

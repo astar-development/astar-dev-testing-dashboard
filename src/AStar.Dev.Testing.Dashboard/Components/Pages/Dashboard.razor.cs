@@ -13,4 +13,3 @@ public partial class Dashboard : ComponentBase
 
     protected override async Task OnInitializedAsync() => Results = await ResultsService.GetAllResultsAsync();
 }
-

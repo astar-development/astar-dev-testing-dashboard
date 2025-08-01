@@ -2,7 +2,6 @@ namespace AStar.Dev.Testing.Dashboard.Services;
 
 public class ThemeService
 {
-    public event Action? OnThemeChange;
     private string       currentTheme = "dark";
 
     public string CurrentTheme
@@ -19,4 +18,6 @@ public class ThemeService
             OnThemeChange?.Invoke();
         }
     }
+
+    public event Action? OnThemeChange;
 }

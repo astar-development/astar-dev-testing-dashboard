@@ -18,7 +18,7 @@ public static class TestResultsEndpoint
                                             {
                                                 var filePath = Path.Combine(dir, "TestResults", "results.trx");
 
-                                                if (!System.IO.File.Exists(filePath))
+                                                if (!File.Exists(filePath))
                                                 {
                                                     continue;
                                                 }

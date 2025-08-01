@@ -37,22 +37,22 @@
 .page {
     background-color: var(--background-color);
     color: var(--text-color);
-    transition: background-color var(--transition-duration) ease, 
-                color var(--transition-duration) ease;
+    transition: background-color var(--transition-duration) ease,
+    color var(--transition-duration) ease;
 }
 
 .sidebar {
     background-color: var(--sidebar-background);
     border-right: 1px solid var(--border-color);
     transition: background-color var(--transition-duration) ease,
-                border-right var(--transition-duration) ease;
+    border-right var(--transition-duration) ease;
 }
 
 .top-row {
     background-color: var(--navbar-background) !important;
     border-bottom: 1px solid var(--border-color);
     transition: background-color var(--transition-duration) ease,
-                border-bottom var(--transition-duration) ease;
+    border-bottom var(--transition-duration) ease;
 }
 
 .top-row a {

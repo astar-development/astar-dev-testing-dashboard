@@ -1,8 +1,8 @@
 namespace AStar.Dev.Testing.Dashboard.Server.Shared.Dtos;
 
-public class TestResultDto
+public record TestResultDto
 {
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     public string StatusIcon => Outcome switch
                                 {
@@ -12,9 +12,9 @@ public class TestResultDto
                                     _         => "help"
                                 };
 
-    public string   Outcome    { get; set; }
-    public double   DurationMs { get; set; }
-    public string   Category   { get; set; }
-    public string   Message    { get; set; }
-    public DateTime Timestamp  { get; set; }
+    public required string   Outcome    { get; set; }
+    public          double   DurationMs { get; set; }
+    public required string   Category   { get; set; }
+    public required string   Message    { get; set; }
+    public          DateTime Timestamp  { get; set; }
 }

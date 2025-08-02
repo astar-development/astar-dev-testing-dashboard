@@ -1,13 +1,11 @@
-namespace AStar.Dev.Test.Dashboard.Ui.Models;
+namespace AStar.Dev.Testing.Dashboard.Models;
 
-public class TestResult
-{
-    public string   Name         { get; set; }
-    public string   Outcome      { get; set; } // Passed, Failed, Skipped
-    public TimeSpan Duration     { get; set; }
-    public string   Category     { get; set; }
-    public string   ErrorMessage { get; set; }
-    public DateTime Timestamp    { get; set; }
-    public string   StartTime    { get; set; }
-    public string   EndTime      { get; set; }
-}
+public record TestResult(
+    string   Name         ,
+    string   Outcome      ,
+    TimeSpan Duration     ,
+    string   Category     ,
+    string   ErrorMessage ,
+    DateTime Timestamp    ,
+    string   StartTime    ,
+    string   EndTime     );

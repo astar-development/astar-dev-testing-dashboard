@@ -1,4 +1,3 @@
-using AStar.Dev.Testing.Dashboard.Server.Controllers;
 using AStar.Dev.Testing.Dashboard.Server.Models;
 
 namespace AStar.Dev.Testing.Dashboard.Server.TestCoverage;

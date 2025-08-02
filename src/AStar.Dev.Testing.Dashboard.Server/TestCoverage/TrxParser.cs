@@ -1,7 +1,7 @@
 using System.Xml.Linq;
 using AStar.Dev.Testing.Dashboard.Server.Models;
 
-namespace AStar.Dev.Testing.Dashboard.Server.Controllers;
+namespace AStar.Dev.Testing.Dashboard.Server.TestCoverage;
 
 public static class TrxParser
 {
@@ -14,18 +14,20 @@ public static class TrxParser
         const string secondSearchString  = ".Tests.Unit/TestResults/results.trx";
         var          index               = filePath.LastIndexOf(initialSearchString, StringComparison.Ordinal) + initialSearchString.Length;
         var          index2              = filePath.LastIndexOf(secondSearchString,  StringComparison.Ordinal) - index;
-        var          root                = filePath.Substring(index, index2);
+        var          projectName         = filePath.Substring(index, index2);
 
         var results = doc.Descendants(ns + "UnitTestResult")
                          .Select(x => new TestResult
-                                      {
-                                          ProjectName = root,
-                                          Name        = x.Attribute("testName")?.Value,
-                                          Outcome     = x.Attribute("outcome")?.Value,
-                                          Duration    = x.Attribute("duration")?.Value,
-                                          StartTime   = x.Attribute("startTime")?.Value,
-                                          EndTime     = x.Attribute("endTime")?.Value
-                                      })
+                                     (
+                                      x.Attribute("testName")?.Value!,
+                                      x.Attribute("outcome")?.Value!,
+                                      x.Attribute("duration")?.Value!,
+                                      x.Attribute("startTime")?.Value,
+                                      x.Attribute("endTime")?.Value,
+                                      x.Attribute("errorMessage")?.Value,
+                                      x.Attribute("testType")?.Value,
+                                      projectName
+                                     ))
                          .ToList();
 
         return results;

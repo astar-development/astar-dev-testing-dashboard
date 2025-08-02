@@ -1,4 +1,5 @@
 using AStar.Dev.Testing.Dashboard.Server.TestCoverage;
+using AStar.Dev.Testing.Dashboard.Server.TestResultsEndpoint;
 
 var builder = WebApplication.CreateBuilder(args);
 

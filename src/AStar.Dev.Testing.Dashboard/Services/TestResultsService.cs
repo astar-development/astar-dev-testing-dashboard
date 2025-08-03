@@ -1,7 +1,7 @@
 using System.Text.Json;
-using AStar.Dev.Test.Dashboard.Ui.Models;
+using AStar.Dev.Testing.Dashboard.Models;
 
-namespace AStar.Dev.Test.Dashboard.Ui.Services;
+namespace AStar.Dev.Testing.Dashboard.Services;
 
 public class TestResultsService(IHttpClientFactory factory)
 {
@@ -10,7 +10,7 @@ public class TestResultsService(IHttpClientFactory factory)
 
     public async Task<List<TestResult>> GetAllResultsAsync()
     {
-        var response = await httpClient.GetAsync("/api/multiprojectresults");
+        var response = await httpClient.GetAsync("/api/test-results");
         response.EnsureSuccessStatusCode();
 
         var json = await response.Content.ReadAsStringAsync();

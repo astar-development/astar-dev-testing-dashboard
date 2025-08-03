@@ -1,5 +1,5 @@
-using AStar.Dev.Test.Dashboard.Ui.Models;
-using AStar.Dev.Test.Dashboard.Ui.Services;
+using AStar.Dev.Testing.Dashboard.Models;
+using AStar.Dev.Testing.Dashboard.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace AStar.Dev.Testing.Dashboard.Components.Pages;
